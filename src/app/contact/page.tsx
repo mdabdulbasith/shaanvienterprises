@@ -53,7 +53,7 @@ export default function ContactPage() {
               <ContactItem
                 icon={<Phone className="w-5 h-5" />}
                 label="Phone"
-                value="+91 XXXXX XXXXX"
+                value="+91 99486 60444"
               />
               <ContactItem
                 icon={<Mail className="w-5 h-5" />}
