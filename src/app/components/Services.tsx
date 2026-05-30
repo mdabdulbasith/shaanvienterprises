@@ -138,7 +138,7 @@ export default function Services() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
+    <section ref={sectionRef} className="relative py-16 md:py-24 bg-[#F8FAFC] overflow-hidden" aria-label="Financial services including loans, real estate, insurance, study abroad, interior design and private finance">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
         {/* HEADER - reduced top margin */}
         <div className="text-center mb-16">
@@ -151,22 +151,15 @@ export default function Services() {
           </p>
         </div>
 
+        <p className="sr-only">
+          Financial services company offering home loans, business loans, real estate buying and investment services, insurance solutions, study abroad consultancy, interior design services, and private finance solutions across India.
+        </p>
+
         {/* CARDS */}
         <div ref={cardsRef} className="grid gap-8 md:gap-10 lg:grid-cols-2">
           {services.map((service, idx) => (
             <ServiceCard key={service.title} service={service} index={idx} />
           ))}
-        </div>
-
-        {/* FOOTER CTA */}
-        <div className="text-center mt-16">
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-[15px] font-medium text-[#4B5563] hover:text-[#1C7293] transition-colors group"
-          >
-            <span>View all services</span>
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
         </div>
       </div>
     </section>

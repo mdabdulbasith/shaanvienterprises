@@ -27,9 +27,7 @@ export default function LoansPage() {
                             </span>
                         </h1>
                         <p className="mt-6 text-lg text-[#4B5563] max-w-xl">
-                            At Shaanvi Enterprises, we simplify loan approvals by connecting
-                            you with trusted banks and financial institutions. From education
-                            to home and business loans, we guide you through every step.
+                            At Shaanvi Enterprises, we simplify home loans, business loans, personal loans, and education loans by connecting you with trusted banks and financial institutions in India.
                         </p>
                         <Link
                             href="/contact"
