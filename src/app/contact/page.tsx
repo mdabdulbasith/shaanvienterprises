@@ -1,12 +1,75 @@
 "use client";
 
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { Phone, Mail, MapPin, Send } from "lucide-react";
-import Link from "next/link";
+
+type FormData = {
+  name: string;
+  email: string;
+  service: string;
+  message: string;
+};
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    service: "Loan Services",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+
+    // Basic client-side validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const res = await fetch(`/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const payload = await res.json().catch(() => null);
+
+      if (!res.ok) {
+        setError((payload && payload.error) || "Failed to send message. Please try again later.");
+        return;
+      }
+
+      // Show a friendly server-provided message and optional reference id
+      const serverMsg = (payload && payload.message) || "Thanks — we've received your message.";
+
+      setSubmitted(true);
+      setSuccessMessage(serverMsg);
+      setFormData({ name: "", email: "", service: "Loan Services", message: "" });
+    } catch (err) {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <main className="w-full bg-[#F8FAFC]">
-
       {/* ===================== */}
       {/* CONTACT HERO */}
       {/* ===================== */}
@@ -40,7 +103,7 @@ export default function ContactPage() {
               <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] font-sora mb-4">
                 Reach Out Anytime
               </h2>
-              <div className="w-16 h-[2px] bg-[#1C7293] rounded-full opacity-60 mb-6" />
+              <div className="w-16 h-0.5 bg-[#1C7293] rounded-full opacity-60 mb-6" />
               <p className="text-[#4B5563] leading-relaxed max-w-md">
                 We believe good decisions start with good conversations.
                 Share your requirement and we’ll help you understand
@@ -73,15 +136,19 @@ export default function ContactPage() {
             <h3 className="text-2xl font-semibold text-[#0F172A] font-sora mb-6">
               Send Us a Message
             </h3>
-            <form className="space-y-5">
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-[#0F172A] mb-1">
                   Full Name
                 </label>
                 <input
                   type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   placeholder="Your name"
                   className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-[#0F172A] placeholder:text-[#4B5563] focus:outline-none focus:ring-2 focus:ring-[#1C7293] focus:border-transparent transition"
+                  required
                 />
               </div>
               <div>
@@ -90,8 +157,12 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="you@example.com"
                   className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-[#0F172A] placeholder:text-[#4B5563] focus:outline-none focus:ring-2 focus:ring-[#1C7293] focus:border-transparent transition"
+                  required
                 />
               </div>
               <div>
@@ -99,6 +170,9 @@ export default function ContactPage() {
                   Service Interested In
                 </label>
                 <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
                   className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-[#0F172A] bg-white focus:outline-none focus:ring-2 focus:ring-[#1C7293] focus:border-transparent transition"
                 >
                   <option>Loan Services</option>
@@ -115,17 +189,30 @@ export default function ContactPage() {
                 </label>
                 <textarea
                   rows={4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Tell us briefly about your requirement"
                   className="w-full rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-[#0F172A] placeholder:text-[#4B5563] focus:outline-none focus:ring-2 focus:ring-[#1C7293] focus:border-transparent transition"
+                  required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#FF9805] text-white font-semibold py-3 px-4 hover:bg-[#E08800] transition shadow-md"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-[#FF9805] text-white font-semibold py-3 px-4 hover:bg-[#E08800] transition shadow-md cursor-pointer"
+                disabled={loading}
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
                 <Send className="w-4 h-4" />
               </button>
+              {submitted ? (
+                <p className="text-sm text-[#1C7293] font-medium">
+                  {successMessage ?? "Thanks! Your message was sent."}
+                </p>
+              ) : null}
+              {error ? (
+                <p className="text-sm text-red-600 font-medium mt-2">{error}</p>
+              ) : null}
             </form>
           </div>
         </div>

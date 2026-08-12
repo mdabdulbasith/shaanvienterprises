@@ -138,7 +138,12 @@ export default function Services() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative py-16 md:py-24 bg-[#F8FAFC] overflow-hidden" aria-label="Financial services including loans, real estate, insurance, study abroad, interior design and private finance">
+    <section
+      id="services"
+      ref={sectionRef}
+      className="relative py-16 md:py-24 bg-[#F8FAFC] overflow-hidden scroll-mt-24"
+      aria-label="Financial services including loans, real estate, insurance, study abroad, interior design and private finance"
+    >
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 relative z-10">
         {/* HEADER - reduced top margin */}
         <div className="text-center mb-16">

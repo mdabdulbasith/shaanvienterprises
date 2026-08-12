@@ -89,7 +89,7 @@ export default function FinalCTA() {
               Talk to an Advisor
             </Link>
             <Link
-              href="/services"
+              href="#services"
               className="px-8 py-3 rounded-xl border border-white/30 text-white font-medium hover:bg-white/10 hover:border-white/50 transition-all duration-300"
             >
               Explore Our Services

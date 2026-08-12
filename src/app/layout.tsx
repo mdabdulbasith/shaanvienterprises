@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Sora } from "next/font/google";
-import Navbar from "@/app/components/Navbar";
 import "./globals.css";
-import Footer from "./components/Footer";
 import SmoothScroll from "./components/SmoothScroll";
+import LayoutContent from "./components/LayoutContent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,11 +50,9 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${sora.variable} bg-[#050816] text-white antialiased`}>
         <SmoothScroll>
-          <Navbar />
-          <main>
+          <LayoutContent>
             {children}
-          </main>
-          <Footer />
+          </LayoutContent>
         </SmoothScroll>
       </body>
     </html>

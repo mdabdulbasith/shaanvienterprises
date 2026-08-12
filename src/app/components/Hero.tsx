@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -44,12 +45,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="mt-8 flex flex-wrap gap-4 justify-center"
         >
-          <button className="px-7 py-3 rounded-full bg-[#00B2FE] text-white font-medium shadow-md hover:bg-[#0099DD] transition-all duration-300 hover:scale-105">
+          <Link
+            href="/contact"
+            className="px-7 py-3 rounded-full bg-[#00B2FE] text-white font-medium shadow-md hover:bg-[#0099DD] transition-all duration-300 hover:scale-105"
+          >
             Get Free Consultation
-          </button>
-          <button className="px-7 py-3 rounded-full border border-[#0F172A]/20 text-[#0F172A] font-medium hover:bg-[#0F172A]/5 transition-all duration-300 hover:scale-105">
+          </Link>
+          <Link
+            href="#services"
+            className="px-7 py-3 rounded-full border border-[#0F172A]/20 text-[#0F172A] font-medium hover:bg-[#0F172A]/5 transition-all duration-300 hover:scale-105"
+          >
             Explore Services
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

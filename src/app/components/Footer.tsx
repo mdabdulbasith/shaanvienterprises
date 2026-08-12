@@ -70,7 +70,6 @@ export default function Footer() {
               <ul className="space-y-3 text-sm">
                 <li><Link href="/contact" className="text-gray-300 hover:text-white transition">Contact Us</Link></li>
                 <li><Link href="/contact" className="text-gray-300 hover:text-white transition">Talk to an Advisor</Link></li>
-                <li><Link href="/accessibility" className="text-gray-300 hover:text-white transition">Accessibility</Link></li>
               </ul>
             </div>
           </div>

@@ -21,9 +21,9 @@ export default function LoansPage() {
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 grid lg:grid-cols-2 gap-12 items-center">
                     <div>
                         <h1 className="text-4xl md:text-5xl font-bold text-[#0F172A] font-sora leading-tight">
-                            Smart Loan Solutions
+                            Helping You Choose the Right Loan
                             <span className="block text-[#1C7293] mt-2">
-                                For Every Financial Need
+                                with Confidence
                             </span>
                         </h1>
                         <p className="mt-6 text-lg text-[#4B5563] max-w-xl">
@@ -49,55 +49,163 @@ export default function LoansPage() {
             </section>
 
             {/* LOAN TYPES */}
-            <section className="py-20 md:py-24 bg-[#F8FAFC]">
+            {/* LOAN SOLUTIONS */}
+            <section className="py-24 bg-[#F8FAFC]">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-                    <div className="text-center mb-14">
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] font-sora">
-                            Loan Options We Offer
+
+                    {/* Header */}
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold text-[#0F172A] font-sora">
+                            Explore Our Loan Solutions
                         </h2>
-                        <p className="text-[#4B5563] mt-4">
-                            Flexible financing solutions tailored for individuals and businesses
+
+                        <p className="mt-5 text-[#4B5563] text-lg">
+                            Whether you're buying your dream home, pursuing higher education,
+                            or looking for financial support, we help you find the right loan
+                            through trusted banking partners.
                         </p>
-                        <div className="w-16 h-[2px] bg-[#1C7293] mx-auto mt-5 rounded-full opacity-60" />
+
+                        <div className="w-16 h-[2px] bg-[#1C7293] mx-auto mt-6 rounded-full opacity-60" />
                     </div>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <LoanCard
-                            icon={<GraduationCap />}
-                            title="Education Loans"
-                            image="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b"
-                            desc="Funding for higher education in India and abroad with flexible repayment plans."
-                        />
-                        <LoanCard
-                            icon={<Home />}
-                            title="Home Loans"
-                            image="https://images.unsplash.com/photo-1560518883-ce09059eeffa"
-                            desc="Affordable home financing solutions with competitive interest rates."
-                        />
-                        <LoanCard
-                            icon={<Building />}
-                            title="Business Loans"
-                            image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c"
-                            desc="Capital solutions to grow and expand your business operations."
-                        />
-                        <LoanCard
-                            icon={<Car />}
-                            title="Vehicle Loans"
-                            image="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
-                            desc="Finance your dream car or two-wheeler with easy EMI options."
-                        />
-                        <LoanCard
-                            icon={<Landmark />}
-                            title="Loan Against Property"
-                            image="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
-                            desc="Leverage your property to unlock significant funding opportunities."
-                        />
-                        <LoanCard
-                            icon={<Home />}
-                            title="Personal Loans"
-                            image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
-                            desc="Quick loans for emergencies, travel, weddings, and personal expenses."
-                        />
+
+                    {/* FEATURED */}
+                    <div className="mb-20">
+
+                        <h3 className="text-2xl font-semibold text-[#0F172A] mb-8">
+                            Featured Loan Solutions
+                        </h3>
+
+                        <div className="grid lg:grid-cols-2 gap-8">
+
+                            {/* HOME LOAN */}
+                            <Link
+                                href="/loans/home-loan"
+                                className="group overflow-hidden rounded-3xl bg-white shadow-sm hover:shadow-xl transition duration-500"
+                            >
+                                <div className="relative h-72">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa"
+                                        alt="Home Loan"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition duration-700"
+                                    />
+
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                                </div>
+
+                                <div className="p-8">
+
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <Home className="text-[#1C7293]" />
+                                        <h3 className="text-2xl font-semibold text-[#0F172A]">
+                                            Home Loans
+                                        </h3>
+                                    </div>
+
+                                    <p className="text-[#4B5563] leading-relaxed">
+                                        Purchase your dream home with competitive interest rates,
+                                        flexible repayment options, and end-to-end documentation support.
+                                    </p>
+
+                                    <div className="mt-6 inline-flex items-center gap-2 font-semibold text-[#1C7293] group-hover:gap-3 transition-all">
+                                        Learn More
+                                        <ArrowRight size={18} />
+                                    </div>
+
+                                </div>
+                            </Link>
+
+                            {/* EDUCATION */}
+                            <Link
+                                href="/loans/education-loan"
+                                className="group overflow-hidden rounded-3xl bg-white shadow-sm hover:shadow-xl transition duration-500"
+                            >
+                                <div className="relative h-72">
+                                    <Image
+                                        src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b"
+                                        alt="Education Loan"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition duration-700"
+                                    />
+
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                                </div>
+
+                                <div className="p-8">
+
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <GraduationCap className="text-[#1C7293]" />
+                                        <h3 className="text-2xl font-semibold text-[#0F172A]">
+                                            Education Loans
+                                        </h3>
+                                    </div>
+
+                                    <p className="text-[#4B5563] leading-relaxed">
+                                        Finance your education in India or abroad with flexible
+                                        repayment plans and expert guidance throughout the process.
+                                    </p>
+
+                                    <div className="mt-6 inline-flex items-center gap-2 font-semibold text-[#1C7293] group-hover:gap-3 transition-all">
+                                        Learn More
+                                        <ArrowRight size={18} />
+                                    </div>
+
+                                </div>
+                            </Link>
+
+                        </div>
+
                     </div>
+
+                    {/* OTHER LOANS */}
+                    <div>
+
+                        <h3 className="text-2xl font-semibold text-[#0F172A] mb-8">
+                            Other Loan Solutions
+                        </h3>
+
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                            <LoanCard
+                                icon={<Building />}
+                                title="Business Loans"
+                                image="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c"
+                                desc="Funding solutions to help your business grow."
+                                buttonText="Enquire Now"
+                                href="/contact"
+                            />
+
+                            <LoanCard
+                                icon={<Car />}
+                                title="Vehicle Loans"
+                                image="https://images.unsplash.com/photo-1503376780353-7e6692767b70"
+                                desc="Finance your new car or two-wheeler with ease."
+                                buttonText="Enquire Now"
+                                href="/contact"
+                            />
+
+                            <LoanCard
+                                icon={<Landmark />}
+                                title="Loan Against Property"
+                                image="https://images.unsplash.com/photo-1568605114967-8130f3a36994"
+                                desc="Unlock the value of your property with flexible funding."
+                                buttonText="Enquire Now"
+                                href="/contact"
+                            />
+
+                            <LoanCard
+                                icon={<Home />}
+                                title="Personal Loans"
+                                image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+                                desc="Quick financial support for your personal needs."
+                                buttonText="Enquire Now"
+                                href="/contact"
+                            />
+
+                        </div>
+
+                    </div>
+
                 </div>
             </section>
 
@@ -168,9 +276,19 @@ export default function LoansPage() {
 }
 
 /* COMPONENTS – updated colors */
-function LoanCard({ icon, title, desc, image }: any) {
+function LoanCard({
+    icon,
+    title,
+    desc,
+    image,
+    href,
+    buttonText,
+}: any) {
     return (
-        <div className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
+        <Link
+            href={href}
+            className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300"
+        >
             <div className="relative h-48 overflow-hidden">
                 <Image
                     src={image}
@@ -179,14 +297,27 @@ function LoanCard({ icon, title, desc, image }: any) {
                     className="object-cover group-hover:scale-105 transition duration-500"
                 />
             </div>
+
             <div className="p-5">
-                <div className="flex items-center gap-3 text-[#1C7293] mb-2">
+
+                <div className="flex items-center gap-3 mb-3 text-[#1C7293]">
                     {icon}
-                    <h3 className="font-semibold text-lg text-[#0F172A]">{title}</h3>
+                    <h3 className="font-semibold text-lg text-[#0F172A]">
+                        {title}
+                    </h3>
                 </div>
-                <p className="text-[#4B5563] text-sm leading-relaxed">{desc}</p>
+
+                <p className="text-[#4B5563] text-sm leading-relaxed">
+                    {desc}
+                </p>
+
+                <div className="mt-5 inline-flex items-center gap-2 text-[#1C7293] font-medium group-hover:gap-3 transition-all">
+                    {buttonText}
+                    <ArrowRight size={16} />
+                </div>
+
             </div>
-        </div>
+        </Link>
     );
 }
 
