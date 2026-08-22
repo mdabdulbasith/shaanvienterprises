@@ -121,7 +121,7 @@ export default function ContactPage() {
               <ContactItem
                 icon={<Mail className="w-5 h-5" />}
                 label="Email"
-                value="contact@shaanvienterprises.com"
+                value="shaanvienterprises20@gmail.com"
               />
               <ContactItem
                 icon={<MapPin className="w-5 h-5" />}
