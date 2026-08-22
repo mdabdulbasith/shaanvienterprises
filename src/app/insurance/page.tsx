@@ -3,15 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
+  Home,
   Shield,
   Car,
   HeartPulse,
-  Home,
+  Plane,
+  Flame,
+  UsersRound,
   CheckCircle,
   ArrowRight,
   FileCheck,
-  Clock,
   Headphones,
+  BadgeIndianRupee,
 } from "lucide-react";
 
 export default function InsurancePage() {
@@ -54,42 +57,71 @@ export default function InsurancePage() {
       </section>
 
       {/* ===================== */}
-      {/* INSURANCE TYPES – GRID CARDS */}
+      {/* INSURANCE SOLUTIONS */}
       {/* ===================== */}
+
       <section className="py-20 md:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] font-sora">
-              Complete Insurance Protection
+              Insurance Solutions We Offer
             </h2>
+
             <p className="mt-4 text-[#4B5563] max-w-2xl mx-auto">
-              Our insurance solutions help individuals and businesses safeguard
-              their finances against unexpected risks and emergencies.
+              Explore insurance solutions designed to help protect you, your family,
+              your business, and the things that matter most.
             </p>
+
             <div className="w-16 h-[2px] bg-[#1C7293] mx-auto mt-6 rounded-full opacity-60" />
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
             <InsuranceCard
               icon={<Car className="w-8 h-8" />}
               title="Vehicle Insurance"
-              description="Comprehensive protection for your car or two-wheeler against accidents, theft, and damages."
+              description="Protection for your car or two-wheeler against accidents, theft, damages, and other covered risks."
             />
+
             <InsuranceCard
               icon={<HeartPulse className="w-8 h-8" />}
               title="Health Insurance"
-              description="Financial protection against medical emergencies, hospital expenses, and treatments."
+              description="Financial support for medical emergencies, hospitalisation, treatments, and healthcare expenses."
             />
+
+            <InsuranceCard
+              icon={<BadgeIndianRupee className="w-8 h-8" />}
+              title="Life Insurance & Investment Plans"
+              description="Explore life insurance solutions and investment-linked plans that can help protect your family's future while supporting your long-term financial goals."
+            />
+
+            <InsuranceCard
+              icon={<Plane className="w-8 h-8" />}
+              title="Travel Insurance"
+              description="Travel with greater confidence with coverage options for medical emergencies, trip disruptions, lost baggage, and other unexpected situations."
+            />
+
             <InsuranceCard
               icon={<Home className="w-8 h-8" />}
               title="Property Insurance"
-              description="Secure your home or commercial property against damages, fire, and natural disasters."
+              description="Help protect your home, commercial property, and other valuable assets against covered risks and unexpected damages."
             />
+
             <InsuranceCard
-              icon={<Shield className="w-8 h-8" />}
-              title="Life Insurance"
-              description="Ensure financial security for your family with reliable life insurance coverage."
+              icon={<Flame className="w-8 h-8" />}
+              title="Fire Insurance"
+              description="Coverage options designed to help protect residential, commercial, and business assets against losses caused by fire and other covered events."
             />
+
+            <InsuranceCard
+              icon={<UsersRound className="w-8 h-8" />}
+              title="Group & Corporate Insurance"
+              description="Insurance solutions for companies and organisations, including employee health coverage and other group protection requirements."
+            />
+
           </div>
+
         </div>
       </section>
 

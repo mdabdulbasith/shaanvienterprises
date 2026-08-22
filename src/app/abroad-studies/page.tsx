@@ -48,52 +48,76 @@ export default function AbroadStudiesPage() {
       {/* ===================== */}
       {/* DESTINATIONS */}
       {/* ===================== */}
+
       <section className="py-20 md:py-24 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-          <div className="text-center mb-14">
+
+          <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] font-sora">
               Study Destinations
             </h2>
+
+            <p className="mt-4 text-[#4B5563]">
+              Explore study opportunities across some of the world's leading
+              education destinations.
+            </p>
+
             <div className="w-16 h-[2px] bg-[#1C7293] mx-auto mt-5 rounded-full opacity-60" />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
             {[
               {
                 name: "USA",
-                img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=600&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=1000&auto=format&fit=crop",
               },
               {
                 name: "UK",
-                img: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?q=80&w=871&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?w=1000&auto=format&fit=crop",
               },
               {
                 name: "Canada",
-                img: "https://images.unsplash.com/photo-1490623970972-ae8bb3da443e?q=80&w=869&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1490623970972-ae8bb3da443e?w=1000&auto=format&fit=crop",
               },
               {
                 name: "Australia",
-                img: "https://images.unsplash.com/photo-1624138784614-87fd1b6528f8?q=80&w=1033&auto=format&fit=crop",
+                img: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=1000&auto=format&fit=crop",
+              },
+              {
+                name: "New Zealand",
+                img: "https://images.unsplash.com/photo-1469521669194-babb45599def?w=1000&auto=format&fit=crop",
+              },
+              {
+                name: "Europe",
+                img: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1000&auto=format&fit=crop",
               },
             ].map((item) => (
               <div
                 key={item.name}
-                className="group relative rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
+                className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
               >
-                <div className="relative h-[220px]">
+                <div className="relative h-[240px]">
                   <Image
                     src={item.img}
-                    alt={item.name}
+                    alt={`Study in ${item.name}`}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
                 </div>
-                <p className="absolute bottom-4 left-4 text-white font-semibold text-lg">
-                  {item.name}
-                </p>
+
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <p className="text-white font-semibold text-xl">
+                    {item.name}
+                  </p>
+                </div>
               </div>
             ))}
+
           </div>
+
         </div>
       </section>
 

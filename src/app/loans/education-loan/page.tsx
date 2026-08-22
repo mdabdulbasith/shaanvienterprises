@@ -148,9 +148,10 @@ export default function EducationLoanPage() {
             <div>
               <div className="relative h-[480px] rounded-[28px] overflow-hidden shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1600&auto=format&fit=crop"
-                  alt="Student walking on university campus"
+                  src="/students.avif"
+                  alt="Students studying abroad"
                   fill
+                  priority
                   className="object-cover"
                 />
               </div>
